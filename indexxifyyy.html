@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>School Directory Portal</title>
+    <style>
+        /* Additional styling can be added here */
+    </style>
+</head>
+
+
+<body>
+    <div class="header-main">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+                    <div class="logo">
+                        <a class="logo-inner" href="/en">
+                            <img src="/images/logo_2.png">
+                        </a>
+                    </div>
+                    <div class="btn-menu">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-9">
+                    <div class="main-menu">
+                        <a class="menu-item" href="/en/about_us">About Us</a>
+                        <a class="menu-item" href="/en/school">Schools</a>
+                        <a class="menu-item" href="/en/consultant">Educational Consultant</a>
+                        <a class="menu-item" href="/en/business">Business</a>
+                        <a class="menu-item active" href="/en/blogs">Blogs</a>
+                        <a class="menu-item" href="/en/content">Content Area</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<!-- Dropdown Input Fields -->
+<section class="mb-8">
+    <h2 class="text-2xl font-semibold mb-4">Filter Schools</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Dropdown for Grade Level -->
+        <div>
+            <label for="gradeLevel" class="block text-sm font-medium text-gray-700">Grade Level</label>
+            <select id="gradeLevel" name="gradeLevel" class="mt-1 p-2 border rounded-md">
+                <option value="all">All Grades</option>
+                <option value="elementary">Elementary</option>
+                <option value="middle">Middle School</option>
+                <option value="high">High School</option>
+            </select>
+        </div>
+        <!-- Dropdown for Location -->
+        <div>
+            <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+            <select id="location" name="location" class="mt-1 p-2 border rounded-md">
+                <option value="all">All Locations</option>
+                <option value="urban">Urban</option>
+                <option value="suburban">Suburban</option>
+                <option value="rural">Rural</option>
+            </select>
+        </div>
+        <!-- Dropdown for Facilities -->
+        <div>
+            <label for="facilities" class="block text-sm font-medium text-gray-700">Facilities</label>
+            <select id="facilities" name="facilities" class="mt-1 p-2 border rounded-md">
+                <option value="all">All Facilities</option>
+                <option value="library">Library</option>
+                <option value="sports">Sports Facilities</option>
+                <option value="labs">Science Labs</option>
+            </select>
+        </div>
+        <!-- Dropdown for Class Size -->
+        <div>
+            <label for="classSize" class="block text-sm font-medium text-gray-700">Class Size</label>
+            <select id="classSize" name="classSize" class="mt-1 p-2 border rounded-md">
+                <option value="all">All Class Sizes</option>
+                <option value="small">Small (1-20)</option>
+                <option value="medium">Medium (21-30)</option>
+                <option value="large">Large (31+)</option>
+            </select>
+        </div>
+    </div>
+</section>

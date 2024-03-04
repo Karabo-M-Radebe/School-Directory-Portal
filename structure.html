@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="./tailwind.config.js" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>School Directory</title>
+</head>
+<body class="bg-gray-100">
+
+    <header class="bg-blue-500 p-4 text-white">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center">
+                <!-- Logo and Site Name -->
+                <div class="flex flex-col mr-3">
+                    <img class="h-8 w-12" src="./images/Placeholder-Light-1024x480.png" alt=""> 
+                    <h1 class="text-3xl font-semibold">School Directory Portal</h1>
+                    <p class="hidden lg:block">Find schools with available spaces in your community.</p>
+                </div>
+            </div>
+            <!-- Navigation Menu for Larger Screens -->
+            <nav class="hidden lg:flex items-center">
+                <a href="#" class="text-white px-4 py-2 hover:text-gray-500">Home</a>
+                <a href="#" class="text-white px-4 py-2 hover:text-gray-500">About</a>
+                <a href="#" class="text-white px-4 py-2 hover:text-gray-500">Schools</a>
+                <a href="#" class="text-white px-4 py-2 hover:text-gray-500">Blogs</a>
+                <a href="#" class="text-white px-4 py-2 hover:text-gray-500">Contact</a>
+            </nav>
+            <!-- Hamburger Icon for Small Screens (on the right side) -->
+            <button id="menuToggle" class="lg:hidden text-white ml-auto focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Responsive Navigation Menu for Smaller Screens -->
+        <div id="responsiveMenu" class="lg:hidden mt-4 hidden">
+            <a href="#" class="block text-white px-4 py-2 hover:text-gray-500">Home</a>
+            <a href="#" class="block text-white px-4 py-2 hover:text-gray-500">About</a>
+            <a href="#" class="block text-white px-4 py-2 hover:text-gray-500">Schools</a>
+            <a href="#" class="block text-white px-4 py-2 hover:text-gray-500">Blogs</a>
+            <a href="#" class="block text-white px-4 py-2 hover:text-gray-500">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-12 my-8">
+
+        <section class="align-items-center px-4 mb-8 bg-teal-500">
+            <h2 class="text-2xl font-semibold mb-4">Available Schools</h2>
+            <div id="schoolList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                <!-- School cards will be dynamically added here -->
+            </div>
+        </section>
+
+        <!-- Dropdown Input Fields -->
+        <section class="mb-8 bg-green-500 text-grey-900 p-4 rounded-md">
+            <h2 class="text-2xl font-semibold mb-4">Filter Schools</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Dropdown for Grade Level -->
+                <div>
+                    <label for="gradeLevel" class="block text-sm font-medium text-gray-700">Grade Level</label>
+                    <select id="gradeLevel" name="gradeLevel" class="mt-1 p-2 border rounded-md">
+                        <option value="all">All Grades</option>
+                        <option value="1">Grade 1</option>
+                        <option value="2">Grade 2</option>
+                        <option value="3">Grade 3</option>
+                        <option value="4">Grade 4</option>
+                        <option value="5">Grade 5</option>
+                        <option value="6">Grade 6</option>
+                        <option value="7">Grade 7</option>
+                        <option value="8">Grade 8</option>
+                        <option value="9">Grade 9</option>
+                        <option value="10">Grade 10</option>
+                        <option value="11">Grade 11</option>
+                        <option value="12">Grade 12</option>
+                    </select>
+                </div>
+                <!-- Dropdown for Location -->
+                <div>
+                    <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+                    <select id="location" name="location" class="mt-1 p-2 border rounded-md">
+                        <option value="all">All Locations</option>
+                        <option value="urban">Urban</option>
+                        <option value="suburban">Suburban</option>
+                        <option value="rural">Rural</option>
+                    </select>
+                </div>
+                <!-- Dropdown for Facilities -->
+                <div>
+                    <label for="facilities" class="block text-sm font-medium text-gray-700">Facilities</label>
+                    <select id="facilities" name="facilities" class="mt-1 p-2 border rounded-md">
+                        <option value="all">All Facilities</option>
+                        <option value="library">Library</option>
+                        <option value="sports">Sports Facilities</option>
+                        <option value="labs">Science Labs</option>
+                    </select>
+                </div>
+                <!-- Dropdown for Class Size -->
+                <div>
+                    <label for="classSize" class="block text-sm font-medium text-gray-700">Class Size</label>
+                    <select id="classSize" name="classSize" class="mt-1 p-2 border rounded-md">
+                        <option value="all">All Class Sizes</option>
+                        <option value="small">Small (1-20)</option>
+                        <option value="medium">Medium (21-30)</option>
+                        <option value="large">Large (31+)</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-semibold mb-4">Search for Schools</h2>
+            <div class="flex">
+                <input type="text" id="searchInput" placeholder="Enter school name" class="w-52 p-2 border rounded-l-md">
+                <button onclick="searchSchools()" class="w-24 bg-blue-500 text-white p-2 rounded-r-md">Search</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-300 p-4 text-center">
+        <p>&copy; 2024 School Directory Portal. All rights reserved.</p>
+    </footer>
+
+    <!-- Include Tailwind CSS and JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+
+    <script>
+        // Example data - replace with actual data from your backend
+        const schools = [
+            { name: 'Community School A', availableSpaces: 10 },
+            { name: 'City Elementary', availableSpaces: 5 },
+            { name: 'Suburb High School', availableSpaces: 15 },
+            // Add more schools as needed
+        ];
+
+        // Function to display available schools
+        function displaySchools(data) {
+            const schoolListElement = document.getElementById('schoolList');
+            schoolListElement.innerHTML = '';
+
+            data.forEach(school => {
+                const card = document.createElement('div');
+                card.classList.add('bg-white', 'p-4', 'rounded', 'shadow', 'mb-4');
+                card.innerHTML = `
+                    <h3 class="text-xl font-semibold mb-2">${school.name}</h3>
+                    <p>Available Spaces: ${school.availableSpaces}</p>
+                `;
+                schoolListElement.appendChild(card);
+            });
+        }
+
+        // Function to search for schools
+        function searchSchools() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const filteredSchools = schools.filter(school => school.name.toLowerCase().includes(searchInput));
+            displaySchools(filteredSchools);
+        }
+
+        // Toggle responsive menu visibility
+        const menuToggle = document.getElementById('menuToggle');
+        const responsiveMenu = document.getElementById('responsiveMenu');
+
+        menuToggle.addEventListener('click', () => {
+            responsiveMenu.classList.toggle('hidden');
+        });
+
+        // Initial display of available schools
+        displaySchools(schools);
+    </script>
+
+</body>
+</html>
